@@ -3,7 +3,7 @@ package basket
 import (
 	"testing"
 
-	"github.com/entropyx/basket-analysis/modules/apriori"
+	"github.com/entropyx/basket/modules/apriori"
 	. "github.com/smartystreets/goconvey/convey"
 )
 

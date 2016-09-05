@@ -1,7 +1,7 @@
 package basket
 
 import (
-	"github.com/entropyx/basket-analysis/modules/apriori"
+	"github.com/entropyx/basket/modules/apriori"
 )
 
 func unique(x []string) []string {
