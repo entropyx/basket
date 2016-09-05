@@ -29,7 +29,7 @@ func removeElement(element string, array []string) []string {
 	return out
 }
 
-func BasketAnalysis(items []string, combinations [][]string) []string {
+func Analyze(items []string, combinations [][]string) []string {
 	var list []string
 	for i := 0; i < len(combinations); i++ {
 		if apriori.Subset(items, combinations[i]) {

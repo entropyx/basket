@@ -27,7 +27,7 @@ func TestBasket(t *testing.T) {
 		transactions := apriori.Result(data)
 
 		Convey("When basket analysis is run", func() {
-			y := BasketAnalysis(first, transactions)
+			y := Analyze(first, transactions)
 			Convey("The Basket return for the first item is the element highest support", func() {
 				So(y[0], ShouldEqual, "iphone-case")
 			})
