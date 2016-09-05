@@ -30,15 +30,15 @@ func removeElement(element string, array []string) []string {
 }
 
 func BasketAnalysis(items []string, combinations [][]string) []string {
-	var list1 []string
+	var list []string
 	for i := 0; i < len(combinations); i++ {
 		if apriori.Subset(items, combinations[i]) {
-			list1 = append(list1, combinations[i]...)
+			list = append(list, combinations[i]...)
 		}
 	}
-	list1 = unique(list1)
+	list = unique(list)
 	for j := 0; j < len(items); j++ {
-		list1 = removeElement(items[j], list1)
+		list = removeElement(items[j], list)
 	}
-	return list1
+	return list
 }
