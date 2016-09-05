@@ -21,6 +21,14 @@ func (slice Transactions) Swap(i, j int) {
 	slice[i], slice[j] = slice[j], slice[i]
 }
 
+func (slice Transactions) Patterns() [][]string {
+	var patterns [][]string
+	for i := 0; i < len(slice); i++ {
+		patterns = append(patterns, slice[i].Pattern)
+	}
+	return patterns
+}
+
 func Subset(first, second []string) bool {
 	set := make(map[string]int)
 	for _, value := range second {
@@ -51,7 +59,7 @@ func Support(x []string, y [][]string) float64 {
 	return sup
 }
 
-func Result(dataset [][]string) Transactions {
+func Result(dataset [][]string) [][]string {
 	l := len(dataset)
 	var combinations Transactions
 	for i := 0; i < l; i++ {
@@ -59,5 +67,6 @@ func Result(dataset [][]string) Transactions {
 		combinations = append(combinations, &Transaction{transaction, Support(transaction, dataset)})
 	}
 	sort.Sort(combinations)
-	return combinations
+
+	return combinations.Patterns()
 }

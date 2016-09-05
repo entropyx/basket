@@ -41,29 +41,7 @@ func TestApriori(t *testing.T) {
 
 		Convey("When the apriori algorithm is calculated for the input data", func() {
 			Convey("The first combination with highest support should be contain iphone item", func() {
-				So(ap[1].Pattern, ShouldContain, "iphone")
-			})
-		})
-
-		Convey("When compute the lenght of the input data", func() {
-			l := ap.Len()
-			Convey("Its should be 10", func() {
-				So(l, ShouldEqual, 10)
-			})
-		})
-
-		Convey("when we compared the support of  ", func() {
-			x := ap.Less(1, 2)
-			Convey("The support of x is greater than y", func() {
-				So(x, ShouldEqual, true)
-			})
-		})
-
-		Convey("when need invert the position of two element of the array", func() {
-			sw := ap[0].Pattern
-			ap.Swap(0, 7)
-			Convey("The new position of the ", func() {
-				So(ap[7].Pattern, ShouldContain, sw[0])
+				So(ap[1], ShouldContain, "iphone")
 			})
 		})
 
