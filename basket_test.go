@@ -3,10 +3,11 @@ package basket
 import (
 	"testing"
 
+	"github.com/entropyx/basket-analysis/modules/apriori"
 	. "github.com/smartystreets/goconvey/convey"
 )
 
-func TestApriori(t *testing.T) {
+func TestBasket(t *testing.T) {
 
 	Convey("Given a list of transactions", t, func() {
 		data := [][]string{
@@ -23,9 +24,10 @@ func TestApriori(t *testing.T) {
 		}
 
 		first := data[0]
+		transactions := apriori.Result(data)
 
 		Convey("When basket analysis is run", func() {
-			y := BasketAnalysis(first, data)
+			y := BasketAnalysis(first, transactions)
 			Convey("The Basket return for the first item is the element highest support", func() {
 				So(y[0], ShouldEqual, "iphone-case")
 			})
